@@ -19,19 +19,19 @@
                   <form class="user m-mobile mb-5 p-3">
                     <div class="input-icon-wrap ">
                       <span class="input-icon bgbd hidden-md"><img src="assets/image/icons/envelop.png" class="iconwidth" alt=""></span>
-                      <input type="text" class="input-with-icon bgbd" placeholder="Email">
+                      <input type="text" class="input-with-icon bgbd" placeholder="Email" [(ngModel)] = 'loginParams.email' name="loginParams.email">
                       <span class="input-icon bgbd "><img src="assets/image/icons/envelop.png" class="hidden-sm float-right iconwidth" alt=""></span>
                     </div>
                     <div class="input-icon-wrap mt-4">
                       <span class="input-icon bgbd hidden-md"><img src="assets/image/icons/lock.png" class="iconwidth" alt=""></span>
-                      <input type="password" class="input-with-icon bgbd" id="password" placeholder="Password">
+                      <input type="password" class="input-with-icon bgbd" id="password" placeholder="Password" [(ngModel)] = 'loginParams.password' name="loginParams.password">
                       <span class="input-icon bgbd eye"><img src="assets/image/icons/lock.png" class="hidden-sm float-right iconwidth" alt="" title="click to show" (click)="myFunction()"></span>
                     </div>
                     <div class="text-center mt-3 mb-5">
                       <a class="small text-decoration-underline text-gray" href="">Forgot your password?</a> 
                     </div>
                     <div class="col-md-6 mb-5 mt-5 pt-3 offset-md-3">
-                      <a routerLink="/admin" class="btn btn-primary btn-user text-uppercase  btn-shadow mt-5 btn-block">
+                      <a class="btn btn-primary btn-user text-uppercase  btn-shadow mt-5 btn-block" (click) = 'login()'>
                         <span class="hidden-sm text-white">Sign in</span>
                         <span class="hidden-md text-white">Login</span>
                       </a>

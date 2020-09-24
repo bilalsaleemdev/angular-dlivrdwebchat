@@ -1,3 +1,5 @@
+import { GuestGaurdService } from './guards/guest-gaurd.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -6,8 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path:'login', component:LoginComponent},
-  {path:'admin', component:AdminPanelComponent}
+  {path:'login', component:LoginComponent, canActivate:[GuestGaurdService]},
+  {path:'admin', component:AdminPanelComponent, canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

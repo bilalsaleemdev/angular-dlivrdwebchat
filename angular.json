@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dlivrdChatWeb"
+    }
+  },
+  "defaultProject": "dlivrdChatWeb",
+  "cli": {
+    "analytics": "ca031d26-4f82-4a9f-954d-f589b7d9667e"
+  }
 }

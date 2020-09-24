@@ -1,4 +1,8 @@
+import { AuthService } from './../auth/auth.service';
+import { LoginService } from './../auth/login.service';
+import { AuthGuardService } from './../guards/auth-guard.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -7,11 +11,14 @@ declare var $: any;
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
   styleUrls: ['./admin-panel.component.css'],
+  providers: [AuthGuardService],
   encapsulation: ViewEncapsulation.None
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService : LoginService,
+     private authService : AuthService,
+     private router : Router) { }
 
   readURL(input) {
     if (input.files && input.files[0]) {
@@ -48,6 +55,13 @@ export class AdminPanelComponent implements OnInit {
         self.readURL(this);
       });
     
+  }
+
+  logout() {
+    this.loginService.logout().subscribe(response => {
+      this.authService.deleteToken();
+      this.router.navigateByUrl('/login');
+    });
   }
 
 }
